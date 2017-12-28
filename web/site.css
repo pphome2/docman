@@ -1,0 +1,78 @@
+
+body {
+    font-size: 1.25em;
+    font-weight: 700;
+    background-color: #e6e6e6;
+}
+
+h1 { text-shadow: 2px 2px #ff0000; }
+
+h2 { text-shadow: 2px 2px #ffffff; }
+
+a { padding: 10px 10px 10px 10px;}
+
+#form1 {
+	background-color:#c2d6d6;
+	margin:20px 160px 20px 160px;
+}
+
+#f1 {
+	background-color:#c2d6d6;
+	margin:20px 60px 20px 60px;
+	padding:20px 20px 20px 20px;
+}
+
+#h1 {
+	background-color:#c2d6d6;
+	margin:20px 60px 20px 60px;
+	padding:20px 20px 20px 20px;
+	text-align: right;
+}
+
+#s1 {
+	background-color:#c2d6d6;
+	margin:20px 60px 20px 60px;
+	padding:20px 20px 20px 20px;
+}
+
+#s2 {
+	background-color:#c2d6d6;
+	margin:20px 20px 20px 40px;
+}
+
+select { padding:5px 15px 5px 15px; }
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;#c3c3c3
+}
+
+.inputfile + label {
+	padding: 5px 5px 5px 5px;
+    color: white;
+    background-color: black;
+    display: inline-block;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: red;
+}
+
+.button {
+	padding: 5px 5px 5px 5px;
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    background-color: black;
+    display: inline-block;
+}
+
+.button:focus,
+.button:hover {
+    background-color: red;
+}
