@@ -12,7 +12,8 @@
 
 include("config/config.php");
 include("$DM_HEADER");
-#include("$DM_CSS");
+include("$DM_CSS2");
+include("$DM_JS_BEGIN");
 
 
 function dirlist($dir) {
@@ -41,7 +42,9 @@ for ($i=0;$i<$db;$i++){
 		$d2=dirlist($dn);
 		if (count($d2)>0){
 			echo("<section id=s1>");
-			echo("<h2>$d[$i]</h2>");
+			echo("<button class=accordion>$d[$i]</button>");
+			echo("<div class=panel>");
+			#echo("<h2>$d[$i]</h2>");
 			echo("<section id=s2>");
 			$db2=count($d2);
 			for ($k=0;$k<$db2;$k++){
@@ -49,6 +52,7 @@ for ($i=0;$i<$db;$i++){
 				echo("<a href=$fn>$d2[$k]</a><br />");
 			}
 			echo("</section>");
+			echo("</div>");
 			echo("</section>");
 		}
 	}
@@ -58,6 +62,7 @@ for ($i=0;$i<$db;$i++){
 
 
 
+include("$DM_JS_END");
 include("$DM_FOOTER");
 
 ?>
