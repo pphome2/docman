@@ -22,4 +22,3 @@
 <center><h1><?php echo($L_SITENAME); ?></h1></center>
 
 <br /><br /><br />
-<br /><br /><br />

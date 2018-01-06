@@ -59,6 +59,9 @@ function fileup($target_dir){
 
 # main
 
+
+echo("<section id=message>");
+
 # if submit button
 
 if (isset($_POST["submitall"])){
@@ -74,9 +77,9 @@ if (isset($_POST["submitall"])){
 					$dir=$DM_DOC_ROOT."/".$_POST["sect"];
 					$ok=fileup($dir);
 					if ($ok){
-						echo($L_OK.".");
+						echo($L_FILEUP." - ".$L_OK.".<br />");
 					}else{
-						echo($L_FILEUP." - ".$dir." - ".$L_ERROR.".");
+						echo($L_FILEUP." - ".$dir." - ".$L_ERROR.".<br />");
 					}
 				}
 			}
@@ -90,9 +93,9 @@ if (isset($_POST["submitall"])){
 						$fd=$fname;
 						#echo($fd."<br />");
 						if (unlink($fd)){
-							echo($L_OK.".");
+							echo($L_FILEDELETE." - ".$L_OK.".<br />");
 						}else{
-							echo($L_FILEDELETE." - ".$fd." - ".$L_ERROR.".");
+							echo($L_FILEDELETE." - ".$fd." - ".$L_ERROR.".<br />");
 						}
 					}
 				}
@@ -105,9 +108,9 @@ if (isset($_POST["submitall"])){
 				if ($fn<>""){
 					#$fn=$DM_DOC_ROOT."/".$fn;
 					if (mkdir($fn)){
-						echo($L_OK.".");
+						echo($L_SECTIONCREATE." - ".$L_OK.".<br />");
 					}else{
-						echo($L_SECTIONCREATE." - ".$fn." - ".$L_ERROR.".");
+						echo($L_SECTIONCREATE." - ".$fn." - ".$L_ERROR.".<br />");
 					}
 				}
 			}
@@ -119,43 +122,50 @@ if (isset($_POST["submitall"])){
 				if ($fn<>""){
 					$fn=$DM_DOC_ROOT."/".$fn;
 					if (rmdir($fn)){
-						echo($L_OK.".");
+						echo($L_SECTIONDELETE." - ".$L_OK.".<br />");
 					}else{
-						echo($L_SECTIONDELETE." - ".$fn." - ".$L_ERROR.".");
+						echo($L_SECTIONDELETE." - ".$fn." - ".$L_ERROR.".<br />");
 					}
 				}
 			}
 
 			#echo("$p1 - $p2");
 		}else{
-			echo($L_NOACCESS.".");
+			echo($L_NOACCESS.".<br />");
 		}
-		echo("<br /><br />");
 	}
 }else{
 	if (isset($_POST["submitall"])){
-		echo($L_NODATA.".");
-		echo("<br /><br />");
+		echo($L_NODATA.".<br />");
 	}
 }
+echo("</section>");
 
 
 
 
 $d=dirlist($DM_DOC_ROOT);
 
-# form: upload
+# form: passcode
 echo("<section id=f1>");
 echo("<h2>$L_ADMINISTRATION</h2>");
-echo("<form method=post enctype=multipart/form-data>");
-echo("<label for=userpass>$L_FILEPASS : </label>");
-echo("<input name=userpass id=userpass type=password><br /><br />");
 
-echo("<h2>$L_FILEUP</h2>");
-echo("<section id=form1>");
-	echo("<label for=sect>$L_FILESELECTION : </label>");
+# fotm tabs
+echo("<div class=\"tab\">");
+echo("  <button class=\"tablinks\" onclick=\"opentab(event, 'tfup')\" id=defaultOpen>$L_FILESELECT</button>");
+echo("  <button class=\"tablinks\" onclick=\"opentab(event, 'tsecnew')\">$L_SECTIONCREATE</button>");
+echo("  <button class=\"tablinks\" onclick=\"opentab(event, 'tsecdel')\">$L_SECTIONDELETE</button>");
+echo("  <button class=\"tablinks\" onclick=\"opentab(event, 'tdocdel')\">$L_DOCDELETE</button>");
+echo("</div>");
+
+# form: upload
+echo("<div id=\"tfup\" class=\"tabcontent\">");
+	echo("<h2>$L_FILEUP</h2>");
+	echo("<section id=form1>");
+	echo("<form id=1 method=post enctype=multipart/form-data>");
+	echo("<label for=userpass>$L_FILEPASS : </label>");
+	echo("<input name=userpass id=userpass type=password><br /><br />");
 	echo("<select name=sect id=sect>");
-
 	$db=count($d);
 	for ($i=0;$i<$db;$i++){
 		$dn=$DM_DOC_ROOT."/".$d[$i];
@@ -163,17 +173,36 @@ echo("<section id=form1>");
 			echo("<option>$d[$i]");
 		}
 	}
-
 	echo("</select>");
 	#echo("<br /><br />");
 	echo(" <input type=file name=fileupload id=fileupload class=inputfile>");
 	echo("<label for=fileupload>$L_FILESELECT</label><br /><br />");
-echo("</section>");
+	echo("<br /><button type=submit id=submitall name=submitall class=button>$L_BUTTON_ALL</button><br /><br />");
+	echo("</form>");
+	echo("</section>");
+echo("</div>");
 
+# form: folder create
+echo("<div id=\"tsecnew\" class=\"tabcontent\">");
+	echo("<h2>$L_SECTIONCREATE</h2>");
+	echo("<section id=form1>");
+	echo("<form id=2 method=post enctype=multipart/form-data>");
+	echo("<label for=userpass>$L_FILEPASS : </label>");
+	echo("<input name=userpass id=userpass type=password><br /><br />");
+	echo("<label for=userpass>$L_CREATE : </label>");
+	echo("<input name=seccre id=seccre type=text><br /><br />");
+	echo("<br /><button type=submit id=submitall name=submitall class=button>$L_BUTTON_ALL</button><br /><br />");
+	echo("</form>");
+	echo("</section>");
+echo("</div>");
 
 # form: folder delete
-echo("<h2>$L_SECTIONDELETE</h2>");
-echo("<section id=form1>");
+echo("<div id=\"tsecdel\" class=\"tabcontent\">");
+	echo("<h2>$L_SECTIONDELETE</h2>");
+	echo("<section id=form1>");
+	echo("<form id=3 method=post enctype=multipart/form-data>");
+	echo("<label for=userpass>$L_FILEPASS : </label>");
+	echo("<input name=userpass id=userpass type=password><br /><br />");
 	echo("<select name=secdel id=secdel>");
 	echo("<option>");
 	$db=count($d);
@@ -186,43 +215,49 @@ echo("<section id=form1>");
 
 	echo("</select>");
 	echo("<br /><br />");
-echo("</section>");
-
-# form: folder create
-echo("<h2>$L_SECTIONCREATE</h2>");
-echo("<section id=form1>");
-	echo("<label for=userpass>$L_CREATE : </label>");
-	echo("<input name=seccre id=seccre type=text><br /><br />");
-	echo("<br /><br />");
-echo("</section>");
+	echo("<br /><button type=submit id=submitall name=submitall class=button>$L_BUTTON_ALL</button><br /><br />");
+	echo("</form>");
+	echo("</section>");
+echo("</div>");
 
 # form: file delete
-$db=count($d);
-for ($i=0;$i<$db;$i++){
-	$dn=$DM_DOC_ROOT."/".$d[$i];
-	if (is_dir($dn)){
-		$d2=dirlist($dn);
-		if (count($d2)>0){
-			echo("<section id=s1>");
-			echo("<h1>$d[$i]<br /></h1>");
-			echo("<section id=s2>");
-			echo("<section id=formx>");
-			$db2=count($d2);
-			for ($k=0;$k<$db2;$k++){
-				$fn=$DM_DOC_ROOT."/".$d[$i]."/".$d2[$k];
-				echo("<input type=checkbox name=file[] id=file value=\"$fn\"><a href=$fn>$d2[$k]</a><br />");
+echo("<div id=\"tdocdel\" class=\"tabcontent\">");
+	echo("<h2>$L_DELETE</h2>");
+	echo("<section id=form1>");
+	echo("<form id=4 method=post enctype=multipart/form-data>");
+	echo("<label for=userpass>$L_FILEPASS : </label>");
+	echo("<input name=userpass id=userpass type=password><br /><br />");
+	$db=count($d);
+	for ($i=0;$i<$db;$i++){
+		$dn=$DM_DOC_ROOT."/".$d[$i];
+		if (is_dir($dn)){
+			$d2=dirlist($dn);
+			if (count($d2)>0){
+				#echo("<section id=s1>");
+				echo("<button type=button class=accordion>$d[$i]</button>");
+				echo("<div class=panel>");
+					echo("<section id=s2>");
+					echo("<section id=formx>");
+					$db2=count($d2);
+					for ($k=0;$k<$db2;$k++){
+						$fn=$DM_DOC_ROOT."/".$d[$i]."/".$d2[$k];
+						echo("<input type=checkbox name=file[] id=file value=\"$fn\"><a href=$fn>$d2[$k]</a><br />");
+					}
+					echo("</section>");
+					echo("</section>");
+				echo("</div><br />");
+				#echo("</section>");
 			}
-			echo("</section>");
-			echo("</section>");
-			echo("</section>");
 		}
 	}
-}
+	echo("<br /><button type=submit id=submitall name=submitall class=button>$L_BUTTON_ALL</button><br /><br />");
+	echo("</form>");
+	echo("</section>");
+echo("</div>");
 
-echo("<br /><button type=submit id=submitall name=submitall class=button>$L_BUTTON_ALL</button><br /><br />");
-echo("</form>");
 echo("</section>");
 
+include("$DM_JS_END");
 include("$DM_FOOTER");
 
 ?>

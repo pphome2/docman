@@ -1,6 +1,6 @@
 
 body {
-    font-size: 1.25em;
+    font-size: 1em;
     font-weight: 700;
     background-color: #e6e6e6;
 }
@@ -14,6 +14,13 @@ a { padding: 10px 10px 10px 10px;}
 #form1 {
 	background-color:#c2d6d6;
 	margin:20px 160px 20px 160px;
+}
+
+#message {
+	background-color:#c2d6d6;
+	margin:20px 60px 20px 60px;
+	padding:20px 20px 20px 20px;
+	color: red;
 }
 
 #f1 {
@@ -76,3 +83,82 @@ select { padding:5px 15px 5px 15px; }
 .button:hover {
     background-color: red;
 }
+
+.accordion {
+    background-color: #CEF6F5;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion:after {
+    content: '\002B';
+    color: #777;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2212";
+}
+
+.panel {
+    padding: 0 18px;
+    bbackground-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+/* Style the tab */
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+    background-color: #ccc;
+}
+.tab button.active:after {
+    content: "";
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 3px solid #ccc;
+    border-top: none;
+}
+
+
