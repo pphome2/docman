@@ -11,11 +11,19 @@
 
 $COPYRIGHT="© 2018. <a href=https://github.com/pphome2/docman>DocMan</a>";
 
+<<<<<<< ours
 # need md5 passcode here
 $DM_PASS="196f9674066aa625b539c2d677d0b676";
 
 $DM_SITENAME="DocMan";
 $DM_SITE_HOME="http://www.example.com";
+=======
+# Karakter1
+$DM_PASS="196f9674066aa625b539c2d677d0b676";
+
+$DM_SITENAME="DocMan - Karakter";
+$DM_SITE_HOME="http://www.karakter.info/v2";
+>>>>>>> theirs
 $DM_DOC_ROOT=".";
 $DM_CONFIG_DIR="config";
 
