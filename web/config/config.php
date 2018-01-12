@@ -11,11 +11,11 @@
 
 $COPYRIGHT="© 2018. <a href=https://github.com/pphome2/docman>DocMan</a>";
 
-# Karakter1
+# need md5 passcode here
 $DM_PASS="196f9674066aa625b539c2d677d0b676";
 
-$DM_SITENAME="DocMan - Karakter";
-$DM_SITE_HOME="http://www.karakter.info/v2";
+$DM_SITENAME="DocMan";
+$DM_SITE_HOME="http://www.example.com";
 $DM_DOC_ROOT=".";
 $DM_CONFIG_DIR="config";
 
@@ -28,7 +28,7 @@ $DM_FOOTER="footer.php";
 
 # language
 
-$L_SITENAME="Karakter dokumentumtár";
+$L_SITENAME="Dokumentumtár";
 $L_SITEHOME="Nyitólap";
 $L_DMHOME="Dokumentumok";
 $L_ADMINISTRATION="Adminisztráció";
