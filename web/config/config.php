@@ -9,7 +9,7 @@
 
 # configuration - need change it
 
-$COPYRIGHT="© 2018. <a href=https://github.com/pphome2/docman>DocMan</a>";
+$COPYRIGHT="© 2018. <a target=_blank href=https://github.com/pphome2/docman>DocMan</a>";
 
 # need md5 passcode here
 $DM_PASS="196f9674066aa625b539c2d677d0b676";

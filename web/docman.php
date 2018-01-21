@@ -30,6 +30,14 @@ function dirlist($dir) {
 }
 
 
+function dirnametofine($n) {
+	$n=str_replace('_',' ',$n);
+	return($n);
+}
+
+
+
+
 
 
 
@@ -41,19 +49,27 @@ for ($i=0;$i<$db;$i++){
 	if (is_dir($dn)){
 		$d2=dirlist($dn);
 		if (count($d2)>0){
-			echo("<section id=s1>");
-			echo("<button class=accordion>$d[$i]</button>");
-			echo("<div class=panel>");
-			#echo("<h2>$d[$i]</h2>");
-			echo("<section id=s2>");
+			echo('
+				<div class="card">
+  					<div onclick="this.parentElement.style.display=\'none\'" class="toprightclose"></div>
+  					<div class=card-header>
+  						<span onclick="cardclose(cardbody'.$i.')" class="topleftmenu1"></span>');
+  			echo(dirnametofine($d[$i]));
+  			echo('
+  					</div>
+  					<div class="cardbody" id="cardbody'.$i.'" style="display:none;"><div style="padding:10px;">
+  			');
 			$db2=count($d2);
 			for ($k=0;$k<$db2;$k++){
 				$fn=$DM_DOC_ROOT."/".$d[$i]."/".$d2[$k];
-				echo("<a href=$fn>$d2[$k]</a><br />");
+				echo("<p><a href=$fn>$d2[$k]</a></p>");
 			}
-			echo("</section>");
-			echo("</div>");
-			echo("</section>");
+			echo('
+  					</div>
+  					<div class=card-footer><span class=button_ok onclick="cardclose(cardbody'.$i.')"></span></div>
+  				</div></div>
+			');
+			
 		}
 	}
 }

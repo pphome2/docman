@@ -1,27 +1,23 @@
 <script>
 
-// for docs
+// card open/close
 
-var acc = document.getElementsByClassName("accordion");
-var id;
-
-for (id = 0; id < acc.length; id++) {
-  acc[id].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight){
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
+function cardclose(th){
+	//var x=document.getElementById(th);
+	//var x=th.parentElement.parentElement.childNodes[2];
+	if (th.style.display=='none'){
+		th.style.display='block'
+	} else {
+		th.style.display='none'
+	}
 }
+
 
 //Tab function for administration
 
 function opentab(evt, tabName) {
     var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName("card-body");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
@@ -33,11 +29,6 @@ function opentab(evt, tabName) {
     //document.getElementById(tabName).className += " active";
     evt.currentTarget.className += " active";
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-
-
 
 
 
