@@ -11,6 +11,7 @@
 
 
 include("config/config.php");
+include("config/$DM_LANGFILE");
 include("$DM_HEADER");
 include("$DM_CSS2");
 include("$DM_JS_BEGIN");

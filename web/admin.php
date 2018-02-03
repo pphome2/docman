@@ -13,6 +13,7 @@ setlocale(LC_ALL, 'hu_HU.UTF8');
 
 # prepare
 include("config/config.php");
+include("config/$DM_LANGFILE");
 include("$DM_HEADER");
 
 
