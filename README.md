@@ -10,8 +10,6 @@ Mini:
 - No need CMS, only use it.
 - No user managment, only one passcode in config file.
 - No need install, only copy to folder, and add rights for web users.
-<<<<<<< HEAD
-=======
 
 The administrative interface is accessible by clicking on the "A" 
 link in the footer. 
@@ -24,4 +22,3 @@ displayed messages are in the "config.php" file, they can be
 translated into another language.
 
 (Thanks Google Translate)
->>>>>>> f4d320bf55a2e7ff6d85ab4c96c9780096ee1f7e
