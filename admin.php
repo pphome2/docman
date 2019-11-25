@@ -153,8 +153,8 @@ if ($loggedin){
 			}
 		}
 		# delete file(s)
-		if (isset($_POST["file"])) {
-			$fn=vinput($_POST["file"]);
+		if (isset($_POST["delfile"])) {
+			$fn=vinput($_POST["delfile"]);
 			foreach ($fn as $fname){
 				if ($fname<>""){
 					$fd=$fname;
@@ -185,6 +185,14 @@ if ($loggedin){
 			$fn=vinput($_POST["secdel"]);
 			if ($fn<>""){
 				$fn=$DM_DOC_ROOT."/".$fn;
+				if (is_dir($fn)) {
+					$objects = scandir($fn);
+					foreach ($objects as $object) {
+						if ($object != "." && $object != "..") {
+							unlink($fn."/".$object);
+						}
+					}
+				}
 				if (rmdir($fn)){
 					mess_ok($L_SECTIONDELETE." - ".$L_OK.".");
 				}else{
@@ -294,7 +302,7 @@ if ($loggedin){
 					for ($k=0;$k<$db2;$k++){
 						$fn=$DM_DOC_ROOT."/".$d[$i]."/".$d2[$k];
 						echo('<p>');
-						echo("<input type=checkbox name=file[] id=file value=\"$fn\"><a style='text-decoration:none;' href=$fn>$d2[$k]</a>");						
+						echo("<input type=checkbox name=delfile[] id=delfile value=\"$fn\"><a style='text-decoration:none;' href=$fn>$d2[$k]</a>");						
 						echo('</p>');
 					}
 					echo("</section>");
