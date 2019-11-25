@@ -20,6 +20,16 @@ include("$DM_HEADER");
 
 # functions
 
+
+function vinput($d) {
+    $d=trim($d);
+    $d=stripslashes($d);
+    $d=strip_tags($d);
+    $d=htmlspecialchars($d);
+    return $d;
+}
+
+
 function dirnametostore($n) {
 	$n=str_replace(' ','_',$n);
 	$n=str_replace('\'','(',$n);
@@ -98,15 +108,18 @@ $passw="";
 
 if (isset($_POST["password"])){
 	$passw=md5($_POST["password"]);
+	$passw=vinput($passw);
 	if ($passw==$DM_PASS){
 		$loggedin=TRUE;
 	}
 }
 if (isset($_POST["passwordh"])){
 	$passw=$_POST["passwordh"];
+	$passw=vinput($passw);
 	if ($passw==$DM_PASS){
 		if (isset($_POST["utime"])){
 			$outime=$_POST["utime"];
+			$outime=vinput($outime);
 			$utime2=$utime-$outime;
 			if ($utime2<$LOGIN_TIMEOUT){
 				$loggedin=TRUE;
@@ -141,7 +154,7 @@ if ($loggedin){
 		}
 		# delete file(s)
 		if (isset($_POST["file"])) {
-			$fn=$_POST["file"];
+			$fn=vinput($_POST["file"]);
 			foreach ($fn as $fname){
 				if ($fname<>""){
 					$fd=$fname;
@@ -156,8 +169,9 @@ if ($loggedin){
 		}
 		# create section
 		if (isset($_POST["seccre"])) {
-			$fn=$_POST["seccre"];
+			$fn=vinput($_POST["seccre"]);
 			if ($fn<>""){
+				$fn=$DM_DOC_ROOT."/".$fn;
 				$fn=dirnametostore($fn);
 				if (mkdir($fn)){
 					mess_ok($L_SECTIONCREATE." - ".$L_OK.".");
@@ -168,7 +182,7 @@ if ($loggedin){
 		}
 		# delete section
 		if (isset($_POST["secdel"])) {
-			$fn=$_POST["secdel"];
+			$fn=vinput($_POST["secdel"]);
 			if ($fn<>""){
 				$fn=$DM_DOC_ROOT."/".$fn;
 				if (rmdir($fn)){
@@ -304,7 +318,7 @@ if ($loggedin){
 	echo("<div class=spaceline100></div>");
 	echo("<form  method='post' enctype='multipart/form-data'>");
 	echo("    $L_FILEPASS:");
-	echo("    <input type='password' name='password' id='password'>");
+	echo("    <input type='password' name='password' id='password' autofocus>");
 	echo("<div class=spaceline></div>");
 	echo("    <input type='submit' value='$L_BUTTON_ALL' name='submit'>");
 	echo("</form>");
