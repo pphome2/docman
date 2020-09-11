@@ -29,13 +29,18 @@ global $DM_DOC_ROOT,$L_DOWNLOAD_PAGE_HEAD,$DM_LINK_TARGET_NEW_WINDOW,
 
 		<?php
 			if (!empty($DM_USER_ALWAYS_CSS)){
-				$MA_STYLEINDEX=$DM_USER_ALWAYS_CSS;
-			}
-			if (file_exists($DM_USER_CSS[$MA_STYLEINDEX])){
-				include($DM_USER_CSS[$MA_STYLEINDEX]);
+				if (file_exists($DM_USER_ALWAYS_CSS)){
+					include($DM_USER_ALWAYS_CSS);
+				}else{
+					$MA_STYLEINDEX=0;
+				}
 			}else{
-				if (file_exists($DM_USER_CSS[0])){
-					include($DM_USER_CSS[0]);
+				if (file_exists($DM_USER_CSS[$MA_STYLEINDEX])){
+					include($DM_USER_CSS[$MA_STYLEINDEX]);
+				}else{
+					if (file_exists($DM_USER_CSS[0])){
+						include($DM_USER_CSS[0]);
+					}
 				}
 			}
 		?>
