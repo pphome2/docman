@@ -1,24 +1,36 @@
+# DocMan
 
-DocMan
+## Dokimentumkezelő weboldalakhoz
 
-(C) 2018. pphome2
+Fejlesztő: [pphome2](https:/github.com/pphome2)
+
+**Aktuális verzió: 2020.**
+**Első megjelenés: 2018.**
+
+A programmal dokumentumokat lehet feltölteni a weboldal mellé, ezek megjeleníthető, letölthetők.
 
 
-Mini documentation manager for download.
+Egyszerű:
+- nem szükséges CMS a működéshez
+- nincs külön felhasználókezelés, két felasználó jelszót tárol a `config` fájlban
+- nem kell telepíteni
+- nem használ SQL adatbázist
+- használhat cookie-kat
 
-Mini:
-- No need CMS, only use it.
-- No user managment, only one passcode in config file.
-- No need install, only copy to folder, and add rights for web users.
+### Telepítés
 
-The administrative interface is accessible by clicking on the "A" 
-link in the footer. 
+- felmásolni az összes fájlt a webserver megfelelő könyvtárába
+- `config` könyvtár `config.php` fájlátnézése, a beállítások itt taláhatók
+- írási jog kell a `config.php` fájlban megadott dokumentum tároló könyvtárra
+- `config` könyvtárban találhatók a nyelvi fájlok, ha szükséges a módosítható
 
-You can create a new section, which is a directory, here you can 
-upload the files. The section can be deleted. You can delete the 
-uploaded files one by one. Only empty section can be deleted. The 
-user interface only displays the section that is not empty. All 
-displayed messages are in the "config.php" file, they can be 
-translated into another language.
 
-(Thanks Google Translate)
+### Működés
+
+Az adatok a `config.php` könyvtárban megadott dokumentum könyvtárban tárolódnak,
+külön alkönyvtárakban. Ezeket szekcióknak nevezzük.
+
+Indítás:
+- felhasználó: `index.html`
+- adminisztráció: `admin.html`
+

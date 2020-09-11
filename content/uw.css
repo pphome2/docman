@@ -1,0 +1,136 @@
+
+body{
+	color:black
+	background-color:white
+}
+
+.df-content {
+	margin:20px;
+	padding:20px;
+}
+
+.df_table {
+	width:90%;
+}
+
+.df_trh {
+	background-color:blue;
+}
+
+.df_th1 {
+	padding:5px;
+	color:#a7a8a8;
+	width:60%;
+}
+
+.df_th2 {
+	padding:5px;
+	color:#a7a8a8;
+	width:20%;
+}
+
+.df_tr:nth-child(even){
+	color:black;
+	background-color:white;
+}
+
+.df_tr:nth-child(odd) {
+	background-color:lightgrey;
+	color:black;
+}
+
+.df_td {
+	color:black;
+	text-align:left;
+	padding:10px;
+}
+
+.df_td2 {
+	color:black;
+	text-align:center;
+}
+
+.df_tds {
+	color:red;
+}
+
+.df_tda {
+	text-decoration:none;
+	color:black;
+}
+
+.df_tda2 {
+	text-decoration:none;
+	font-weight: bold;
+	color:red;
+}
+
+.df-card-header {
+	padding:5px;
+	border-radius: 5px 5px 0px 0px;
+	 border-color:#2196F3;
+	background-color:#2196F3;
+	color:white;
+	font-size:1.3em;
+	cursor: default;
+}
+
+.df-card-body {
+	padding:10px;
+	border: 1px solid;
+	border-color:#2196F3;
+	border-radius: 0px 0px 5px 5px;
+}
+
+.df-topleftmenu1{
+	text-decoration:bold;
+	display: inline-block;
+	vertical-align: middle;
+	margin-top:5px;
+	font-size:1em;
+}
+
+.df-topleftmenu1:before {
+	content:'\2630';
+	padding-right:10px;
+	padding-left:10px;
+	margin-bottom:5px;
+	text-decoration:bold;
+	display: inline-block;
+	vertical-align: middle;
+	font-size:1em;
+}
+
+.df-topright {
+	text-decoration:none;
+	position:absolute;
+	right:10px;
+	top:7px;
+	font-size:1em;
+	color:white;
+}
+
+.df_table_full {
+	width:100%;
+	padding:20px;
+}
+
+.df-card {
+	position:relative;
+	display:block;
+	cursor:default;
+	clear:both;
+	margin-top:20px;
+	margin-bottom:20px;
+	border-radius: 5px 5px 0px 0px;
+	box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+}
+
+.df_header {
+	text-align:center;
+	font-weight: bold;
+	padding:15px;
+	font-size:2em;
+	color:blue;
+	width:100%;
+}
