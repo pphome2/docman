@@ -63,12 +63,26 @@ body{
 	text-decoration:none;
 	font-weight: bold;
 	color:red;
+	float:right;
+}
+
+.df_butt {
+	border-radius:3px;
+	padding:10px;
+	color: white;
+	border: none;
+	text-decoration: none;
+	margin:5px 5px 5px 5px;
+	font-size:0.9em;
+	background-color: #4CAF50;
+	border-radius: 4px;
+	cursor: pointer;
 }
 
 .df-card-header {
 	padding:5px;
 	border-radius: 5px 5px 0px 0px;
-	 border-color:#2196F3;
+	border-color:#2196F3;
 	background-color:#2196F3;
 	color:white;
 	font-size:1.3em;

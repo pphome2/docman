@@ -68,12 +68,12 @@ function formatBytes($size, $precision=2){
 
 function filetable($dir){
     global $DM_DOC_ROOT,$L_COL1,$L_COL2,$L_COL3,$DM_TEXTFILE_EXT,$DM_FILEEXT,$L_DOWNLOAD_TEXT,$L_VIEW,
-			$cardnum,$dirnum;
+			$DM_VIEW_FILE,$cardnum,$dirnum;
 
 	$files=scandir($dir);
-    asort($files);
-    $fdb=0;
-    foreach ($files as $entry) {
+	asort($files);
+	$fdb=0;
+	foreach ($files as $entry) {
 		if ($entry!="." && $entry!=".." && $entry!="lost+found") {
 			$dirn=$dir.'/'.$entry;
 			if (is_dir($dirn)){
@@ -111,9 +111,15 @@ function filetable($dir){
 					echo("<tr class='df_tr'>");
 					$fileext_name=strtoupper($fileext_name);
 					echo("<td class='df_td'><span class='df_tds'>[$fileext_name]</span> ");
-					echo("<a href='$dir/$entry' target='$target' class='df_tda'>$entry</a>");
-					echo(" - <a href='$dir/$entry' target='$target' class='df_tda2'>$L_VIEW</a>");
-					echo(" - <a href='$dir/$entry' download class='df_tda2' onclick='delrow(this);'>$L_DOWNLOAD_TEXT</a>");
+					if ($DM_VIEW_FILE){
+						echo("<a href='$dir/$entry' target='$target' class='df_tda'>$entry</a>");
+					}else{
+						echo($entry);
+					}
+					echo("<a href='$dir/$entry' download class='df_tda2' onclick='delrow(this);'><button class='df_butt'>$L_DOWNLOAD_TEXT</button></a>");
+					if ($DM_VIEW_FILE){
+						echo("<a href='$dir/$entry' target='$target' class='df_tda2'><button class='df_butt'>$L_VIEW</button></a>");
+					}
 					$entry2=$dir.'/'.$entry.$DM_TEXTFILE_EXT;
 					if (file_exists($entry2)){
 						echo("<br /><br />");

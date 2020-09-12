@@ -101,4 +101,6 @@ $DM_USER_CSS=array(
 			);
 $DM_USER_ALWAYS_CSS="";
 
+$DM_VIEW_FILE=true;
+
 ?>
