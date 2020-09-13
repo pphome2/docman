@@ -9,20 +9,26 @@
 
 ?>
 
+</div>
 
 <?php
     $nextstyle=$MA_STYLEINDEX+1;
     if ($nextstyle>(count($MA_CSS)-1)){
 		$nextstyle=0;
     }
+
+    if ($MA_ENABLE_COOKIES){
+	echo("<p class=padleft>$L_COOKIE_TEXT</p>");
+    }
+
 ?>
 
-</div>
+
 
 <footer>
 
-  <ul class="sidenav">
-    <li class="padleft"><?php echo($MA_COPYRIGHT); ?></li>
+    <ul class="sidenav">
+	<li class="padleft"><?php echo($MA_COPYRIGHT); ?></li>
 
 <?php
 

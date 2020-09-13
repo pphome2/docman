@@ -29,6 +29,7 @@ $L_SEARCH="Search";
 
 # local app zone
 
+$L_COOKIE_TEXT="The site use cokies. Please read the Privacy page.";
 
 $L_PRIVACY_HEADER="Privacy page address";
 $L_PRIVACY_TEXT=" Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec in justo sodales, mattis purus quis, ultricies sem.
