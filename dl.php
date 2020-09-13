@@ -23,6 +23,7 @@ for ($i=0;$i<count($MA_LIB);$i++){
 	}
 }
 
+
 $MA_USERPAGE=true;
 
 # css setting

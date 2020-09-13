@@ -10,6 +10,7 @@
 
 
 
+
 # backpage button
 function button_back(){
 	global $L_BACKPAGE;

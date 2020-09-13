@@ -10,7 +10,6 @@
 
 
 
-
 # login from cookie or param
 function login(){
 	global $MA_LOGGEDIN,$MA_LOGIN_TIME,$MA_PASSWORD,$MA_ENABLE_COOKIES,$MA_COOKIE_PASSWORD,

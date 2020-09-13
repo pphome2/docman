@@ -19,6 +19,7 @@
 		<link rel="shortcut icon" type="image/png" href="favicon.png" />
 		<style><?php include("$MA_CSS[$MA_STYLEINDEX]"); ?></style>
 	</head>
+
 <body>
 
 
