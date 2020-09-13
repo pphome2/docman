@@ -15,9 +15,6 @@ if (file_exists("config/config.php")){
 if (file_exists("$MA_LIB")){
 	include("$MA_LIB");
 }
-if (file_exists("$MA_CONFIG_DIR/$MA_LANGFILE")){
-	include("$MA_CONFIG_DIR/$MA_LANGFILE");
-}
 
 
 # build page

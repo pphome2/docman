@@ -21,10 +21,6 @@ for ($i=0;$i<count($MA_LIB);$i++){
 	}
 }
 
-if (file_exists("$MA_CONFIG_DIR/$MA_LANGFILE")){
-	include("$MA_CONFIG_DIR/$MA_LANGFILE");
-}
-
 # css setting
 setcss();
 

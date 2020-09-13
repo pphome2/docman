@@ -23,10 +23,6 @@ for ($i=0;$i<count($MA_LIB);$i++){
 	}
 }
 
-if (file_exists("$MA_CONFIG_DIR/$MA_LANGFILE")){
-	include("$MA_CONFIG_DIR/$MA_LANGFILE");
-}
-
 $MA_USERPAGE=true;
 
 # css setting
