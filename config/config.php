@@ -65,6 +65,7 @@ $MA_LOGIN_TIME="";
 $MA_LOGGEDIN=false;
 $MA_STYLEINDEX=0;
 $MA_LOGOUT_IN_HEADER=true;
+$MA_PRIVACY_PAGE=false;
 
 # auto logout - second
 $MA_LOGIN_TIMEOUT=600;

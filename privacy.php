@@ -7,6 +7,7 @@
  #
  #
 
+
 # load config
 if (file_exists("config/config.php")){
 	include("config/config.php");
@@ -17,6 +18,9 @@ for ($i=0;$i<count($MA_LIB);$i++){
 		include("$MA_LIB[$i]");
 	}
 }
+
+
+$MA_PRIVACY_PAGE=true;
 
 # cookies or param 
 setcss();
