@@ -4,6 +4,43 @@ body{
 	background-color:white
 }
 
+.menu {
+	margin:0;
+	padding:0;
+}
+
+.padleft {
+	padding-left:20px;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border-radius:5px;
+	background-color: dimgray;
+}
+
+li {
+	color: lightgreen;;
+	margin: auto;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size:1.5em;
+	font-weight: bold;
+	border-radius:5px;
+}
+
+.floatleft {
+	float: left !important;
+}
+
+.floatright {
+	float: right !important;
+}
+
 .df-content {
 	margin:20px;
 	padding:20px;
@@ -144,7 +181,7 @@ body{
 	text-align:center;
 	font-weight: bold;
 	padding:15px;
-	font-size:2em;
+	font-size:1.5em;
 	color:blue;
 	width:100%;
 }

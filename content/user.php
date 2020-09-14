@@ -11,7 +11,8 @@
 
 
 global $DM_DOC_ROOT,$L_DOWNLOAD_PAGE_HEAD,$DM_LINK_TARGET_NEW_WINDOW,
-		$DM_USER_CSS,$DM_USER_ALWAYS_CSS,$MA_STYLEINDEX,$L_VIEW;
+		$DM_USER_CSS,$DM_USER_ALWAYS_CSS,$MA_STYLEINDEX,$L_VIEW,
+		$DM_HEAD_TEXT;
 
 ?>
 
@@ -53,8 +54,18 @@ global $DM_DOC_ROOT,$L_DOWNLOAD_PAGE_HEAD,$DM_LINK_TARGET_NEW_WINDOW,
 	<body>
 		<div class=df-content>
 
-
 <?php
+	echo("<div class=\"menu\">");
+	echo("<ul class=\"sidenav\">");
+	if (!empty($DM_HEAD_TEXT)){
+		echo("<li class=floatleft>$DM_HEAD_TEXT</li>");
+		echo("<li class=floatright>$L_DOWNLOAD_PAGE_HEAD</li>");
+	}else{
+		echo("<li>$L_DOWNLOAD_PAGE_HEAD</li>");
+	}
+	echo("</ul>");
+	echo("</div>");
+
 
 function formatBytes($size, $precision=2){
     if($size < 0) {
@@ -149,7 +160,7 @@ if ($DM_LINK_TARGET_NEW_WINDOW){
     $target="";
 }
 
-echo("<div class=df_header>$L_DOWNLOAD_PAGE_HEAD</div>");
+#echo("<div class=df_header>$L_DOWNLOAD_PAGE_HEAD</div>");
 
 $dirnum=0;
 $cardnum=0;
