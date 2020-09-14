@@ -17,7 +17,7 @@
 		$nextstyle=0;
     }
 
-    if ($MA_ENABLE_COOKIES){
+    if (($MA_ENABLE_COOKIES)and(!$MA_LOGGEDIN)){
 	echo("<p class=padleft>$L_COOKIE_TEXT</p>");
     }
 
@@ -36,10 +36,10 @@ if ($MA_ENABLE_COOKIES){
 
 ?>
     <li class="liright">
-	<a href="" onclick="document.cookie='<?php echo($MA_COOKIE_STYLE.'='.$nextstyle); ?>;return false;' "><?php echo($L_THEME); ?></a>
+		<a href="" onclick="document.cookie='<?php echo($MA_COOKIE_STYLE.'='.$nextstyle); ?>;return false;' "><?php echo($L_THEME); ?></a>
     </li>
     <li class="liright">
-	<a href="<?php echo($MA_PRIVACY) ?>" ><?php echo($L_PRIVACY_MENU); ?></a>
+		<a href="<?php echo($MA_PRIVACY) ?>" ><?php echo($L_PRIVACY_MENU); ?></a>
     </li>
 <?php
 
@@ -47,10 +47,10 @@ if ($MA_ENABLE_COOKIES){
 
 ?>
     <li class="liright">
-	<a href="<?php echo($MA_ADMINFILE."?".$MA_STYLEPARAM_NAME."=".$nextstyle); ?>"><?php echo($L_THEME); ?></a>
+		<a href="<?php echo($MA_ADMINFILE."?".$MA_STYLEPARAM_NAME."=".$nextstyle); ?>"><?php echo($L_THEME); ?></a>
     </li>
     <li class="liright">
-	<a href="<?php echo($MA_PRIVACY."?".$MA_STYLEPARAM_NAME."=".$$MA_STYLEINDEX) ?>" ><?php echo($L_PRIVACY_MENU); ?></a>
+		<a href="<?php echo($MA_PRIVACY."?".$MA_STYLEPARAM_NAME."=".$$MA_STYLEINDEX) ?>" ><?php echo($L_PRIVACY_MENU); ?></a>
     </li>
 
 
@@ -66,8 +66,8 @@ if ($MA_ENABLE_COOKIES){
 	
 ?>
 
-  </li>
-  </ul>
+	</li>
+	</ul>
 
 </footer>
 
