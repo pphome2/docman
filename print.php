@@ -12,8 +12,11 @@
 if (file_exists("config/config.php")){
 	include("config/config.php");
 }
-if (file_exists("$MA_LIB")){
-	include("$MA_LIB");
+
+for ($i=0;$i<count($MA_LIB);$i++){
+	if (file_exists("$MA_LIB[$i]")){
+		include("$MA_LIB[$i]");
+	}
 }
 
 
