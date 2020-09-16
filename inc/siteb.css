@@ -50,7 +50,13 @@ p a{
 }
 
 .padleft {
-	padding-left:20px;
+	padding-left: 20px;
+}
+
+.cookietext {
+	padding-left: 20px;
+	font-size: 0.8em;
+	text-align: center;
 }
 
 ul {
