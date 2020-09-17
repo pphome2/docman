@@ -12,10 +12,6 @@
 # copyright link
 $MA_COPYRIGHT="© ".date("Y").". <a href=https://github.com/pphome2>Github</a>";
 
-# need md5 passcode -- user password: password - admin password: adminpassword
-$MA_ADMIN_PASS="e3274be5c857fb42ab72d786e281b4b8";
-$MA_USER_PASS="5f4dcc3b5aa765d61d8327deb882cf99";
-
 # title, home link
 $MA_SITENAME="DocMan";
 $MA_SITE_HOME="http://www.google.com";
@@ -27,6 +23,7 @@ $MA_INCLUDE_DIR="inc";
 $MA_CONTENT_DIR="content";
 
 $MA_COOKIE_STYLE="st";
+$MA_COOKIE_USER="user";
 $MA_COOKIE_PASSWORD="passw";
 $MA_COOKIE_TIME="ltime";
 
@@ -73,9 +70,24 @@ $MA_ENABLE_COOKIES=true;
 $MA_ADMIN_USER=false;
 $MA_USERPAGE=false;
 
+# multiuser
+$MA_ENABLE_USERNAME=false;
+$MA_USERS_ADMINUSERS=array(
+				"admin"
+			);
+$MA_USERS_CRED=array(
+					array("admin","e3274be5c857fb42ab72d786e281b4b8"),
+					array("user","5f4dcc3b5aa765d61d8327deb882cf99"),
+				);
+# need md5 passcode -- user password: password - admin password: adminpassword
+
 # menu
 $MA_MENU_FIELD="m";
 $MA_MENU=array();
+
+# adminmenu
+$MA_ADMINMENU_FIELD="m";
+$MA_ADMINMENU=array();
 
 # load language file
 if (file_exists("$MA_CONFIG_DIR/$MA_LANGFILE")){

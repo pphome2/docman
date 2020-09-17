@@ -10,7 +10,6 @@
 
 
 
-
 # backpage button
 function button_back(){
 	global $L_BACKPAGE;
@@ -57,13 +56,18 @@ function mess_ok($m){
 
 # login box
 function login_form(){
-	global $MA_COOKIE_STYLE,$MA_STYLEINDEX,$L_PASS,$MA_COOKIE_PASSWORD,$L_BUTTON_NEXT;
+	global $MA_COOKIE_STYLE,$MA_STYLEINDEX,$L_PASSWORD,$MA_COOKIE_PASSWORD,$L_BUTTON_NEXT,$MA_ENABLE_USERNAME,
+			$MA_USERS,$L_USERNAME,$L_PASS,$MA_COOKIE_USER;
 	
 	echo("<div class=spaceline100></div>");
 	echo("<form  method='post' enctype='multipart/form-data'>");
-	echo("	<input type='hidden' name='$MA_COOKIE_STYLE' id='$MA_COOKIE_STYLE' value='$MA_STYLEINDEX'>");
-	echo("	$L_PASS:");
-	echo("	<input type='password' name='$MA_COOKIE_PASSWORD' id='$MA_COOKIE_PASSWORD' autofocus>");
+	if ($MA_ENABLE_USERNAME){
+		echo("	<input type='text' name='$MA_COOKIE_USER' id='$MA_COOKIE_USER' placeholder='$L_USERNAME' autofocus>");
+		echo("	<input type='password' name='$MA_COOKIE_PASSWORD' id='$MA_COOKIE_PASSWORD' placeholder='$L_PASSWORD'>");	
+	}else{
+		echo("	$L_PASS:");
+		echo("	<input type='password' name='$MA_COOKIE_PASSWORD' id='$MA_COOKIE_PASSWORD' autofocus>");	
+	}
 	echo("	<div class=spaceline></div>");
 	echo("	<input type='submit' value='$L_BUTTON_NEXT' name='submit'>");
 	echo("</form>");
